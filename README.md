@@ -220,3 +220,27 @@ gcloud run deploy <<YOUR_APP_NAME>> --source . \
 ```
 
 ---
+
+##PubSub
+
+Create a topic:
+```bash
+gcloud pubsub topics create demo-topic
+```
+
+Create a subscription:
+```bash
+gcloud pubsub subscriptions create demo-sub --topic=demo-topic
+```
+
+Publish message:
+```bash
+gcloud pubsub topics publish demo-topic --message "Hello students"
+```
+
+Pull message:
+```bash
+gcloud pubsub subscriptions pull demo-sub --auto-ack
+```
+
+
