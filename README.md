@@ -194,3 +194,29 @@ Deploy → copy the trigger URL → visit in browser
 #Task 3:
 Create a function that returns current time
 
+---
+
+## Cloud Run
+Copy contents of files 'app.py' and 'requirements.txt' into Cloud Editor
+
+Set your project id in the gcloud terminal
+```bash
+gcloud config set project <<YOUR_GCP_PROJECT_ID>>
+```
+
+Enable the required APIs
+```bash
+gcloud services enable run.googleapis.com
+gcloud services enable cloudbuild.googleapis.com
+```
+
+Deploy to Cloud Run
+```bash
+gcloud run deploy <<YOUR_APP_NAME>> --source . \
+--region us-central1 \
+--allow-unauthenticated \
+--labels dev-tutorial=cvs11 \
+--set-env-vars GOOGLE_CLOUD_PROJECT=<<YOUR_PROJECT_ID>>
+```
+
+---
